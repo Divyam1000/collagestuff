@@ -1,0 +1,149 @@
+This Terms of Service Agreement (the “Agreement”), along with the Privacy Policy located at privacy policy (the “Privacy Policy”), establishes the terms and conditions applicable to your use of the Service (as defined below) offered by Qwiklabs Inc., 355 Main Street, Cambridge, MA 02142 (“Qwiklabs” or “We”). By clicking the "I Accept" button displayed as part of the registration process or by using the Service or any portion thereof, you accept and agree to be bound by the terms and conditions of this Agreement and the Privacy Policy, including all terms incorporated herein by reference. The Agreement and the Privacy Policy will be effective as of the date you click the “I Accept” button displayed as part of the registration process or by using the Service or any portion thereof (the “Effective Date”). If you are entering into this Agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity to this Agreement, in which case the terms "you" or "your" shall refer to such entity. If you do not have such authority, or if you do not agree with these terms and conditions, you must select the "I Decline" button and may not use the Service.
+
+Definitions
+"Agents" means (i) service providers and related third parties that Qwiklabs may hire to perform certain business-related functions and (ii) business partners and related third parties with which Qwiklabs may have a contractual relationship with respect to the Service.
+"Creator Content" means any content or work of authorship created, owned or licensed by you if you have a “Creator Role”, which is submitted to the Lab Creation Service and transmitted, rendered, displayed or executed on or through the Service, including without limitation any text, postings, audio, video, images, messages, software, and materials.
+“Creator Role” means the designation of your account by Qwiklabs as a creator to access the “Lab Creation Service”. If you have the Creator Role, all sections of this agreement apply to you including sections that reference the Lab Service and the Lab Creation Service.
+“Lab Creation Service” means the services and functionality hosted by Qwiklabs and made available to you, through which you may deploy, configure, customize, manage, administer, and control a virtual server for implementing and testing software as a part of your training through the Lab Service if you have a “Creator Role” on or through the Qwiklabs Site.
+“Lab Service” means the educational, training, and learning services provided to you through the Qwiklabs Site or any related website provided by Qwiklabs.
+“Lab Sponsor” means any or all of the following: (a) the company or other organization (other than Qwiklabs or any reseller of training services or content) with whom you are employed or otherwise associated in connection with the Lab Service, (b) the instructor(s) of the Lab Service (or other individuals designated by the instructor(s) to assist with the creation, modification or operation of the Lab Service), and the companies or institutions with which they are affiliated, or (c) the owner of the Third Party Content accessible and/or used by you in the Lab Service.
+“Qwiklabs Site” means the website located at Qwiklab.com, and/or any related or successor URLs operated or controlled by Qwiklabs.
+“Qwiklabs Technology” means all of Qwiklabs’ proprietary technology (including, but not limited to, software, hardware, products, processes, algorithms, user interfaces, know-how, techniques, designs, and other tangible or intangible technical material or information) made available to you by Qwiklabs in providing the Service, excluding Third Party Content.
+“Resources” means any virtual or physical infrastructure provided to you by the Service.
+“Service” means the Lab Service and the Lab Creation Service, collectively, along with the Qwiklab Site.
+“Third Party Content” means any content or work of authorship created, owned, or licensed by a third party or one of our affiliates, including your Lab Sponsor and accessible and/or used by you through the Service.
+Use of Service
+This Agreement applies to all use of the Service. Subject to the terms and conditions of this Agreement and your registration with us through the Qwiklabs user registration process, Qwiklabs hereby grants you the right to use the Lab Service under the terms of this Agreement. Furthermore, if you have a Creator Role, Qwiklabs hereby grants you the right to use the Lab Creation Service under the terms of this Agreement. Use of Resources may be performed only in accordance with the terms and conditions of this Agreement and such other specifications as may be communicated by Qwiklabs from time to time.
+
+Restrictions and Limitations
+You may not access and/or use the Service for purposes of monitoring its availability, performance, or functionality, or for any other benchmarking or competitive purposes.
+
+You shall not, and will not allow third parties under your control to: (i) license, sublicense, sell, resell, transfer, assign, distribute, or otherwise commercially exploit or make available to any third party the Service in any way, except as expressly authorized in this Agreement; (ii) modify (except as permitted through the Lab Creation Service (if you have a Creator role)) or make derivative works based upon the Service; (iii) reverse engineer the Service and/or any component thereof; (iv) access the Service in order to build a competitive product or service; (v) build a product using similar ideas, features, functions, or graphics of the Service, or (vi) copy any ideas, features, functions, or graphics of the Service.
+
+You shall not utilize any part of the Service to: (i) send spam or otherwise duplicative or unsolicited messages in violation of applicable Laws (as defined below); (ii) send or store infringing, obscene, threatening, libelous, defamatory, pornographic, online gambling, or otherwise unlawful or tortious material, including material harmful to children or that violates third party privacy rights or inconsistent with the generally accepted practices of the Internet community as reasonably determined by Qwiklabs; (iii) send or store material containing software viruses, worms, Trojan horses or other harmful computer code, files, scripts, agents, or programs; (iv) interfere with or disrupt the integrity or performance of the Service or the data contained therein; (v) attempt to gain unauthorized access to the Service or its related systems or networks; or (vi) enable, further, or participate in any unlawful activity. You may not use any part of the Service in connection with providing any website or service that is aimed at, directed to, or marketed to children under the age of 16 or the age of consent in your country. You acknowledge and agree that if Qwiklabs or any Lab Sponsor becomes aware or has reason to believe that you are engaging in any such prohibited activity, both have the right to immediately suspend and/or terminate your use of the Service.
+
+If you have a Creator Role any use of the Lab Creation Service and the Resources must be limited to use for the sole purpose of completing or participating in Lab Services provided by your Lab Sponsor. The Resources may not be made available to or accessed by any third party other than your Lab Sponsor and/or any individuals acting on behalf of your Lab Sponsor. All software or other Creator Content stored on the Resources may be deleted at any time by Qwiklabs. Qwiklabs makes no warranties or representations with respect to the performance, reliability, or functionality of the Lab Creation Service. All Creator Content or other data stored on the Resources should be non-confidential and no warranty or representation is made with respect to the confidentiality or security of any Creator Content stored on the Resources.
+
+The right to use the Lab Service and, if you have a Creator Role, the Lab Creation Service is non-transferable. Any Lab Service tokens you buy or any promotional tokens you’re given are for your individual use and cannot be resold or distributed.
+
+All rights not expressly granted to you are reserved by Qwiklabs and its licensors.
+
+Your Responsibilities
+You are responsible for all activity occurring through your use of the Service. You represent: (i) that you shall abide by all applicable laws and regulations in connection with your use of the Service, including, without limitation, those related to intellectual property and privacy (collectively, "Laws"); and (ii) that you will not copy, reproduce, edit, translate, reformat, store, display, distribute, or perform any content or work of authorship that is transmitted, rendered, displayed or executed on or through the Service in violation of the intellectual property rights of any person (including any Lab Sponsor).
+
+You will not obscure or contravene or attempt to obscure or contravene any notices of or attribution to Qwiklabs displayed within the Service that relate to Qwiklabs’ role as a service provider.
+
+You will select and use a secure user password for your account and you agree not to share your password with any other party.
+
+Commercial Activities Prohibited
+The Resources may not be used for promotional or commercial activities, including for advertising or crypto-mining. If you have a Creator Role, use of the Lab Creation Service is limited to the creation and testing of Creator Content and related materials in connection with the Lab Service.
+
+Your Information
+You agree to provide Qwiklabs with your complete and accurate contact information, including, without limitation, when completing the account registration and creation process. This information includes your first and last name, legal name or business name, country of residence, e-mail address, and password. You agree to update this information promptly if it changes. If the contact information you have provided is false or fraudulent, Qwiklabs reserves the right to terminate your access to the Service in addition to any other legal remedies. Our collection, use, and storage of your personal information is subject to the terms and conditions of our Privacy Policy, which is set forth at Privacy Policy.
+
+Creator Content: Ownership
+This Section 7 is applicable to you only if you have a Creator role on Qwiklabs site or any other site provided by Qwiklabs in concert with your Lab Sponsor.
+
+As between you and Qwiklabs, Creator Content shall be the property of you. By posting, uploading, inputting, providing or submitting Creator Content, you hereby grant to Qwiklabs and its affiliated companies, Agents and necessary sublicensees a worldwide, perpetual, royalty-free license to (i) copy, reproduce, edit, translate, reformat, store, display, distribute, and perform Creator Content on or through the Service in order to provide the Service; (ii) use and analyze the Creator Content in furtherance of Qwiklabs’ internal business purposes or otherwise for the purpose of providing the Service; (iii) disclose metrics regarding Creator Content on an aggregated basis for marketing and business development purposes; (iv) publish your name in connection with your Creator Content; and (v) sublicense such rights to any supplier or third party in relation to the operation of the Qwiklabs business including the Service.
+
+You acknowledge and agree that you have sole responsibility for ensuring that all Creator Content you submit on or through the Service is compliant with the terms and conditions of this Agreement, all other terms of use agreements, disclaimers, and notices that may be displayed by Qwiklabs on or through the Service, and all Laws ("Applicable Terms"). You, and not Qwiklabs, shall have sole responsibility for the accuracy, quality, integrity, legality, reliability, appropriateness, and intellectual property ownership or right to use of all Creator Content, and Qwiklabs shall not be responsible or liable for the deletion, correction, destruction, damage, loss, or failure to store any Creator Content. Qwiklabs reserves the right to, without notice, withhold, remove, and/or discard Creator Content not in compliance with the Applicable Terms, and to remove or disable any Resources or account not in compliance with the Applicable Terms.
+
+Except as set forth in this Section 7, using our Services does not give you ownership of any intellectual property rights in the content you access, including, without limitation, Third Party Content.
+
+Demonstration Accounts and Use
+Qwiklabs may grant to certain persons or entities a limited-time demonstration account (“Demo Account”) to use the Service for the limited purpose of evaluating the Service for purchase. Any such Demo Account granted to you may be used only for the limited time period specified by Qwiklabs (the “Demo Period”) upon provision of the Demo Account login details to you. Any Demo Account may be revoked at any time and for any reason.
+
+All Creator Content submitted by any user of a Demo Account will be deleted upon termination of the Demo Period. In addition to the terms and conditions of this Section 8, all terms and conditions of this Agreement shall apply to any use of the Service in connection with a Demo Account.
+
+Intellectual Property
+Qwiklabs Intellectual Property
+You acknowledge and agree that Qwiklabs or its affiliates, where applicable, shall own all right, title, and interest, including, without limitation, all intellectual property rights in and to the Qwiklabs Technology. This Agreement is not a sale and does not convey to you any rights of ownership in or related to the Service, the Qwiklabs Technology or the intellectual property rights owned by Qwiklabs. The Qwiklabs name, the Qwiklabs trademark, and other product names associated with the Service are trademarks of Qwiklabs, and no right or license is granted to use them.
+
+Feedback
+You hereby assign and agree to assign to Qwiklabs all right, title, and interest in and to any enhancement requests, recommendations, suggestions, comments, evaluations, ideas, or other information relating to the Service (“Feedback”) provided by you to Qwiklabs, including, but not limited to, all intellectual property rights embodied in such Feedback.
+
+Modification of Terms
+Qwiklabs reserves the right to modify this Agreement or its policies relating to the Service and other Applicable Terms, at any time, effective upon posting of an updated version of this Agreement, policies and/or other Applicable Terms on the Service. You are responsible for regularly reviewing this Agreement and such policies, the current version of which shall be made available as set forth herein through the Qwiklabs Site. If any change to this Agreement is not acceptable to you, your sole remedy is to terminate your use of the Service and any other rights under this Agreement. Any use of the Service after such publication shall constitute acceptance by you of such revised Agreement.
+
+Term and Termination
+This Agreement commences upon your acceptance of this Agreement by clicking “I Accept” in the sign-up process for the Service and shall continue until terminated (the “Term”). You acknowledge and agree that Qwiklabs or your Lab Sponsor may terminate and/or suspend your access to any portion of the Service for any reason or for no reason at all, in Qwiklabs’ sole discretion, without prior notice. You may terminate this Agreement at any time by discontinuing your use of the Service. For users of Demo Accounts, this Agreement shall terminate upon the expiration of the corresponding Demo Period. If applicable, all other user accounts shall terminate upon the conclusion or withdrawal of the Lab Service by the Lab Sponsor.
+
+Upon termination or expiration, your right to access or use Content shall immediately cease, and Qwiklabs shall have no obligation to retain copies of any Content or related data. Upon termination or expiration of this Agreement, the following provisions will survive in full force and effect: 7, 9, 11.2, 12, 13, 14, 15 and 16, and any other clause or portion of a clause which, by its nature, is intended to survive termination or expiration of this Agreement.
+
+Indemnification
+You shall indemnify and hold Qwiklabs, its licensors, partners and each such party’s parent organizations, subsidiaries, affiliates, officers, directors, employees, attorneys, and agents harmless from and against any and all claims, demands, costs, damages, losses, liabilities, and expenses (including attorneys’ fees and costs) arising out of or in connection with: (i) any Creator Content, including without limitation any claim alleging that use of any Creator Content infringes or misappropriates the rights of, or has caused harm to, a third party; (ii) a breach or violation by you of any responsibilities, representations, covenants, or warranties under this Agreement and/or other Applicable Terms; or (iii) your use of the Resources. You agree that Qwiklabs’ licensors and partners shall be third party beneficiaries of your indemnification obligations hereunder.
+
+Disclaimer of Warranties
+You acknowledge and agree that by using the Service, you may be exposed to Third Party Content that is offensive, indecent, or objectionable. You further acknowledge and agree that the Service and the Third Party Content may contain errors or omissions. You acknowledge and agree that Qwiklabs does not screen or review published Third Party Content on the Service to determine whether it contains false or defamatory material or material which is offensive, indecent, objectionable, or which contains errors or omissions. Under no circumstances will Qwiklabs be liable in any way for Third Party Content, including, but not limited to, for any defamation, falsehoods, errors, or omissions in any such content, or for any loss or damage of any kind incurred as a result of the use or publication of any such Third Party Content posted, emailed, or otherwise transmitted via the Service. Qwiklabs does not guarantee that any Third Party Content will be to your satisfaction.
+
+Qwiklabs, its partners and licensors make no representation, warranty, or guaranty as to the reliability, timeliness, quality, suitability, truth, availability, accuracy, or completeness of the Service or any third party content. Qwiklabs, its partners and licensors do not represent or warrant that (a) the use of the Service will be secure, timely, uninterrupted, or error-free or operate in combination with any other hardware, software, system, or data, (b) the Service will meet your requirements or expectations, (c) any stored data will be accurate or reliable, (d) the quality of any products, services, information, or other material purchased or obtained by you through the Service will meet your requirements or expectations, (e) errors or defects will be corrected, or (f) the Service or the server(s) that make the Service available are free of viruses or other harmful components. The Service and all licensed and third party content are provided to you strictly on an "as is" basis. Qwiklabs, its partners and licensors hereby disclaim (to the maximum extent permitted by applicable law) all conditions, representations and warranties, whether express, implied, statutory or otherwise, including, without limitation, any implied warranty of merchantability, fitness for a particular purpose, or non-infringement of third party rights.
+
+Qwiklabs Services may be subject to limitations, delays, and other problems inherent in the use of the internet and electronic communications. Qwiklabs is not responsible for any delays, delivery failures, or other damage resulting from such problems.
+
+If you are an EEA-based consumer of digital content, services, or goods, and you have agreed to our Terms of Service, then EEA consumer laws provide you with a legal guarantee. Under this guarantee, we are liable for any lack of conformity that you discover for the one-time supply of digital content or services at any time during the "continuous" supply of digital content or services. Your national laws may provide an even longer guarantee. Your rights under these legal guarantees aren’t limited by any other commercial guarantees that we provide. If you want to make a guarantee claim, please contact us at https://support.google.com/qwiklabs/contact/contact_us
+
+Limitation of Liability
+In no event shall Qwiklabs’ aggregate liability for all claims arising with respect to or in connection with this Agreement exceed the amounts received by Qwiklabs from you or your Lab Sponsor for the use of the Services during the six (6) month period immediately preceding the event upon which claims are based. In no event shall Qwiklabs, its partners and/or licensors be liable to anyone for any indirect, punitive, special, exemplary, incidental, consequential, or other damages of any type or kind (including loss of data, revenue, profits, use, or other economic advantage) arising out of or in any way connected with the Service, including but not limited to the use of or inability to use the Service, or for any creator content obtained from or through the Service, any interruption, inaccuracy, error, or omission, regardless of cause, in the creator content, even if Qwiklabs, its partners or licensors have been previously advised of the possibility of such damages.
+
+Force Majeure
+In no event shall Qwiklabs incur any liability to you on account of any loss or damage resulting from any delay or failure to perform all or any part of this Agreement to the extent such delay or failure is caused by events, occurrences, or causes beyond the control and without negligence of Qwiklabs, including by not limited to acts of God, strikes, riots, acts of war, lockouts, earthquakes, fires, and explosions.
+
+Miscellaneous
+Governing Law. Except if not permitted by your jurisdiction's applicable law, all claims arising out of or relating to this Agreement or the Program will be governed by California law, excluding California's conflict of laws rules, and will be litigated exclusively in the federal or state courts of Santa Clara County, California, USA; the parties consent to personal jurisdiction in those courts.
+
+No Waiver. Neither party will be treated as having waived any rights by not exercising (or delaying the exercise of) any rights under this Agreement.
+
+Severability. To the extent any term of this Agreement is invalid, illegal or unenforceable, the rest of the Agreement will remain in effect.
+
+Assignment. Neither party may assign any part of this Agreement without the written consent of the other, except to an affiliate where: (a) the assignee has agreed in writing to be bound by the terms of this Agreement and liable for obligations under the Agreement including obligations incurred prior to the assignment; (b) the assigning party has notified the other party of the assignment; and (c) where Partner is assigning to an affiliate, Qwiklabs must have provided its prior written consent. Any other attempt to transfer or assign is void.
+
+Notices. All notices of termination or breach must be in English, in writing and addressed to the other party’s Legal Department. The address for notices to Qwiklabs’ Legal Department is legal-notices@google.com. All other notices must be in English, in writing and addressed to the other party’s primary contact. Notice will be treated as given on receipt, as verified by written or automated receipt or by electronic log (as applicable).
+
+Contact Details.The contracting entity is Qwiklabs, Inc., located at 355 Main Street, Cambridge, MA 02142. The URL for contact is https://www.cloudskillsboost.google/
+
+Appendix
+Additional Provisions Applicable to Qwiklabs Affiliate Content
+If you are using or accessing the Service to receive content or materials created by any entity that directly or indirectly controls, is controlled by, or is under common control with Qwiklabs (a “Qwiklabs Affiliate”), or provided or made available by a Qwiklabs Affiliate via the Service, including (without limitation) training manuals, access to online lab environments, slideware, videos, student guides, student lab instructions or such other materials or content as may be provided by a Qwiklabs Affiliate from time to time (as all such courseware or materials may be updated or modified by such Qwiklabs Affiliate from time to time), (collectively, “Qwiklabs Affiliate Content”), the additional provisions set out in this Appendix will apply.
+
+Ownership and Licensing of Qwiklabs Affiliate Content
+A. Intellectual Property Ownership. Except as described at Section 1.B below, this Appendix does not grant you any rights, implied or otherwise, to intellectual property rights in and to the Qwiklabs Affiliate Content and any Qwiklabs Affiliate’s trade names, trademarks, logos, domain names, and other distinctive brand features (“Brand Features”). As between any Qwiklabs Affiliate and you, the applicable Qwiklabs Affiliate owns all intellectual property rights in and to the Qwiklabs Affiliate Content and Brand Features.
+B. Licensing of Qwiklabs Affiliate Content. Upon acceptance of this Appendix, the applicable Qwiklabs Affiliate grants you a non-exclusive, worldwide, non-transferable license, with no right to sublicense, to use the Qwiklabs Affiliate Content solely in connection with the Service. You may not copy, modify, share or publish the Qwiklabs Affiliate Content, or combine them with any of your own materials.
+Disclaimer for Qwiklabs Affiliate Content
+To the fullest extent permitted by applicable laws, no conditions, warranties or other terms apply to any Qwiklabs Affiliate Content or to any other services supplied or made available by any Qwiklabs Affiliate via the Service unless expressly set out in this Appendix. For clarity, no implied conditions, warranties or other terms apply (including any implied terms as to satisfactory quality, fitness for purpose or conformance with description).
+
+Confidentiality of Qwiklabs Affiliate Content
+You will not disclose the Qwiklabs Affiliate Content, except to employees, where applicable), affiliates or professional advisors, where applicable (“Delegates”) who need to know it and who have a legal obligation to keep it confidential. You will use the Qwiklabs Affiliate Content only to the extent expressly permitted under this Appendix. You will ensure that your Delegates are also subject to the same non-disclosure and use obligations, where applicable. You may disclose confidential information when required by law after giving reasonable notice to the discloser, if permitted by law. Except for the limited use rights under this Appendix, neither party acquires any right, title, or interest in the other party's confidential information.
+
+Liability for Qwiklabs Affiliate Content
+IN RELATION TO THE QWIKLABS AFFILIATE CONTENT ONLY AND TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, NEITHER QWIKLABS, NOR QWIKLABS AFFILIATES AND ITS SUPPLIERS WILL BE LIABLE UNDER THIS AGREEMENT FOR LOST REVENUES OR INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, EVEN IF THE PARTY KNEW OR SHOULD HAVE KNOWN THAT SUCH DAMAGES WERE POSSIBLE AND EVEN IF DIRECT DAMAGES DO NOT SATISFY A REMEDY. IN RELATION TO THE QWIKLABS AFFILIATE CONTENT ONLY AND TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, QWIKLABS’, QWIKLABS AFFILIATES’ AND SUPPLIERS’ AGGREGATE LIABILITY UNDER THIS AGREEMENT WILL NOT EXCEED THE AMOUNT YOU OR YOUR LAB SPONSOR ACTUALLY PAID TO SUCH QWIKLABS AFFILIATE UNDER THIS AGREEMENT DURING THE SIX MONTHS PRIOR TO THE EVENT GIVING RISE TO SUCH LIABILITY.
+
+Last Updated: May 5, 2022
+
+Below you will find country specific telephone numbers to support consumers.
+Austria +43800100458
+Belgium +32080058206
+Bulgaria +35980014447
+Croatia +3858007746
+Cyprus +35780077349
+Czechia +420800701538
+Denmark +4580400289
+Estonia +3728005352
+Finland +3580800523230
+France +33805980300
+Germany +498006270970
+Greece +3080044147500
+Hungary +36680987465
+Ireland +3531800832665
+Italy +39800089705
+Latvia +37180205374
+Lithuania +370880031454
+Luxembourg +35280040253
+Malta +35680065002
+Netherlands +318002525537
+Poland +48800702378
+Portugal +351800600044
+Romania +40800885811
+Slovakia +421800500126
+Slovenia +38680081099
+Spain +34900906442
+Sweden +460200125384
