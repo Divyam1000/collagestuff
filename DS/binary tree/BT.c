@@ -24,8 +24,14 @@ struct listnode* creatlist(int num){
     return tmp;
 }
 
-struct treenode* construct_in_pre(struct listnode* preptr, struct listnode* inptr, int num)
-{
+void display_list(struct listnode* p){
+    if(p == NULL)
+        return;
+    printf("%d\n",p->info);
+    display_list(p->next);
+}
+
+struct treenode* construct_in_pre(struct listnode* preptr, struct listnode* inptr, int num){
     int i,j;
     struct treenode* tmp;
     struct listnode* p;
@@ -40,10 +46,10 @@ struct treenode* construct_in_pre(struct listnode* preptr, struct listnode* inpt
     p = inptr;
     for(i = 0; p->info != preptr->info; i++)
         p = p->next;
-    tmp->lchild = construct_in_pre(preptr->next,inptr,num);
-    for(j = 0; j <= i+1; j++)
-        preptr = preptr->next;
-    tmp->rchild = construct_in_pre(preptr, p->next, num-i);
+    tmp->lchild = construct_in_pre(preptr->next,inptr,i);
+    for(j = 1; j <= i+1; j++)
+        preptr = preptr->next
+    tmp->rchild = construct_in_pre(preptr, p->next, num-i-1);
     return tmp;
 
 }
@@ -51,9 +57,18 @@ struct treenode* construct_in_pre(struct listnode* preptr, struct listnode* inpt
 void disp_pre(struct treenode* ptr){
     if(ptr == NULL)
         return;
-    printf("%d",ptr->info);
+    printf("%d\n",ptr->info);
     disp_pre(ptr->lchild);
     disp_pre(ptr->rchild);
+}
+
+struct treenode* construct_in_post(struct listnode* postptr, struct listnode* inptr, int num){
+    int i, j;
+    if(num == 0)
+        return NULL;
+    struct treenode* tmp = (struct treenode*)malloc(sizeof(struct treenode));
+    struct listnode* p;
+    tmp->0
 }
 
 int main(){
@@ -63,9 +78,11 @@ int main(){
     printf("Enter number of elements in preoder list: ");
     scanf("%d",&p);
     preorder = creatlist(p);
+    //display_list(preorder);
     printf("Enter number of elements in inorder list: ");
     scanf("%d",&i);
     inorder = creatlist(i);
+    //display_list(inorder);
 
     binary_tree = construct_in_pre(preorder, inorder,p);
 
@@ -73,4 +90,21 @@ int main(){
 
 
 }
-
+/*8
+19
+25
+65
+85
+11
+44
+33
+29
+8
+65
+25
+11
+85
+19
+33
+29
+44*/

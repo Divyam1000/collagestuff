@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
-
 #define MAX 50
 
 char postfix[MAX];
@@ -12,8 +11,8 @@ struct node{
     struct node *link;
 } *top = NULL;
 
-int is_op(char c){
-    if(strcmp(c,"+")||strcmp(c,"-")||strcmp(c,"/")||strcmp(c,"*")||strcmp(c,"%"))
+int is_op(int c){
+    if(c == '+' || c == '-'|| c == '/'|| c == '*' || c == '%')
         return 1;
     else return 0;
 }
@@ -34,15 +33,14 @@ void push(char data){
 }
 
 char pop(){
-    char ch;
-    struct node* tmp = top;
+    char ch = "\0";
+    //struct node* tmp = top;
     if(isEmpty()){
         printf("Queue Underflow! \n");
-        return "\0";
+        return ch;
     }
     ch = top->ch;
     top = top->link;
-    free(tmp);
     return ch;
 }
 
@@ -53,7 +51,7 @@ void display(){
         return;
     }
     while(p!= NULL){
-        printf("%d\n",p->ch);
+        printf("%c\n",p->ch);
         p = p->link;
     }
 }
@@ -69,43 +67,48 @@ int length(){
 }
 
 void all_push(char *exp1, char exp2, char op){
+    int size = sizeof(exp1);
     push("(");
-    for(int i = strlen(exp1); i>=0 ; i--)
+    for(int i = size - 1; i>=0 ; i--){
         push(exp1[i]);
+    }
     push(op);
     push(exp2);
     push(")");
 }
 
-char *all_pop(){
-    char *exp = (char*)malloc(sizeof(char)*length());
+char all_pop(){
+    char *exp = NULL;
     int index = 0;
-    while(top != NULL){
-        exp[index] = pop();
-        index++;
+    char ch;
+    while(!isEmpty()){
+        ch = pop();
+        exp = (char*)realloc(exp,sizeof(char)*(index+1));
+        exp[index] = ch;
+        index ++;
     }
     return exp;
 }
 
 void postfix_to_infix(){
     int i = 0;
-    while(i<sizeof(postfix)){
-
+    while(i<=strlen(postfix)){
         char item = postfix[i];
-
         if(is_op(item)){
             char operand2 = pop();
             char *operand1 = all_pop();
             all_push(operand1,operand2,item);
         }
-
         else{
             push(item);
         }
         i++;
     }
-    for(;i>=0;i--){
+    display();
+    i =length()-1;
+    while(i>=0){
         infix[i] = pop();
+        i--;
     }
 }
 
@@ -113,10 +116,10 @@ void postfix_to_infix(){
 int main(){
 
     printf("Enter a Postfix Expression: ");
-    gets(postfix);
-
+    gets(postfix); printf("%s",postfix);
+    printf("Converting....\n");
     postfix_to_infix();
 
-    printf("InfixL: ");
+    printf("Infix: ");
     puts(infix);
 }
