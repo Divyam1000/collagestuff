@@ -8,19 +8,6 @@ struct node{
     struct node* next;
 };
 
-void display(struct node* start){
-    if(start == NULL){
-        printf("List is empty is empty!\n");
-        return;
-    }
-    struct node* p = start;
-    while(p!=NULL){
-        printf("\n%d",p->info);
-        p = p->next;
-    }
-}
-
-
 struct node* add_toempty(struct node *start, int data){
     struct node* tmp;
     tmp = (struct node*)malloc(sizeof(struct node));
@@ -98,7 +85,62 @@ struct node* del_node(struct node* start, int item){
         printf("\n%d\n",p->info);
         free(p);
     }
-};
+}
+
+struct node* reverse_list(struct node* start){
+    if(start == NULL){
+        printf("List is empty!\n");
+        return start;
+    }
+    struct node* p = start;
+    struct node* tmp = NULL;
+
+    while(p != NULL){
+        tmp = p->prev;  printf("%d",p->prev);
+        p->prev = p->next;
+        p->next = tmp;
+        if(p->prev == NULL){
+            start = p;
+        }
+        p = p->prev;
+    }
+    return start;
+}
+
+
+struct node* swap_adjacent(struct node* start){
+    if(start == NULL){
+        printf("List is empty!\n");
+        return start;
+    }
+    if(start->next == NULL){
+        printf("cannot reverse, only one element!\n");
+        return start;
+    }
+    start = start->next;
+    struct node* p = start,*q = start->next;
+    while(p->next != NULL){printf("HERE1\n");
+        p->next = q->next;
+        q->next = p;
+        q->prev = p->prev;
+        p->prev = q;
+        p = p->next;
+        q = p->next;printf("HERE2\n");
+    }
+    return start;
+}
+
+void display(struct node* start){
+    if(start == NULL){
+        printf("Empty list!\n");
+        return;
+    }
+    struct node* p = start;
+    while(p != NULL){
+        printf("%d\n",p->info);
+        p = p->next;
+    }
+}
 
 int main(){
     int op;
@@ -106,19 +148,23 @@ int main(){
     int data;
 
     while(1){
-        printf("*\n****MENU*****\n");
-        printf("1.creat list\n2.add node\n3. delete node\n4. reverse list\n");
+        printf("\n*****MENU*****\n");
+        printf("1.creat list\n2.add node\n3. delete node\n4. reverse list\n5. swap\n6. display\n");
         scanf("%d",&op);
         switch(op){
-            case 1: start = createlist(start);
+            case 1: start = createlist(start);  break;
             case 2: printf("Enter data: "); scanf("%d",&data);
                     if(start == NULL){
-                        start = add_atbeg(start, data);
+                        start = add_toempty(start, data);
                     }else{
                         start = add_atend(start, data);
-                    }
+                    }   break;
             case 3: printf("Enter item to delete: "); scanf("%d",&data);
-                    start = del_node(start , data);
+                    start = del_node(start , data); break;
+            case 4: start = reverse_list(start);    break;
+            case 5: start = swap_adjacent(start);   break;
+            case 6: display(start); break;
+
         }
     }
 }
