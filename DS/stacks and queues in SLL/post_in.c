@@ -34,7 +34,6 @@ void push_node(struct node* p){
 struct node* pop(){
     if(isEmpty()){
         printf("Stack underflow! \n");
-        //exit(0);
     }
     struct node *tmp = top;
     char* ch;
@@ -52,16 +51,17 @@ int length(struct node *p){
     return len;
 }
 
-void display(){
-    struct node *p = top;
+void display(struct node* p){
     if(isEmpty()){
         printf("Stack Underflow!\n");
         return;
     }
-    while(p!= NULL){
-        printf("%c\n",p->ch);
-        p = p->link;
-    }
+    if(p->link != NULL)
+        display(p->link);
+    if(p->ch == "(" || p->ch == ")")
+        printf("%s",p->ch);
+    else
+        printf("%c",p->ch);
 }
 
 void push_all(struct node* op1, struct node* op2, char *op){
@@ -69,12 +69,12 @@ void push_all(struct node* op1, struct node* op2, char *op){
     while(!isEmpty()){
         tmp = pop();
     }
-    push("(");printf("%s\n",top->ch);
+    push("(");
     tmp->link = top;
     push_node(op1);
     push(")");
     push(op);
-    push_node(op2);
+    push(op2->ch);
 }
 
 void postfix_to_infix(){
@@ -92,12 +92,6 @@ void postfix_to_infix(){
             push(item);
         }
     }
-
-    int len = length(top);
-    for(int i = len-2; i >=0; i--){
-        infix[i] = pop()->ch;
-    }
-    infix[len]="\0";
 }
 
 int main(){
@@ -108,6 +102,5 @@ int main(){
     postfix_to_infix();
 
     printf("Infix: ");
-    //puts(infix);
-    printf("%s",infix);
+    display(top);
 }
