@@ -1,116 +1,198 @@
-
-//oops project
 #include<iostream>
 #include<fstream>
-#include<string>
-#include<cstring>
-#include<iomanip>
+#include<string.h>
+#include<stdio.h>
 using namespace std;
 
-class ticket{
-    public:
+class ticket
+{
+public:
     string cname;
-    int tno;
-    string destination;
+    string tno;
+    char destination[100];
+    float price;
 
-    ticket(string name,int no,string dest){
-        cname=name;
-        tno=no;
-        destination=dest;
-    }
-
-   void putdata(void)
-    {
-        cout << setw(10) << tno<< setw(10) << cname<< setprecision(2) << setw(10) << destination<< endl;
-    }
-
+    ticket():price(0){}
+    void display_details();
+    //option 1
+    static void option1();
+    //puts the details from ptr to file
+    static void put_details_tofile(ticket *ptr);
+    //option 2
+    static void option2();
+    //edit ticket number (tno)
+    static void edit_tno_infile(ticket *old_T, ticket *new_T);
+    //option 3
+    static void option3();
+    //add price to file
+    static int add_price_tofile(ticket *ptr);
 };
 
+void ticket :: display_details()
+{
+    string ticketNo = tno + ".txt";
+    fstream ticketFile;
+    ticketFile.open(ticketNo, ios::in|ios::binary);
+    //checks if file exists
+    ticketFile.seekg(0);
+    if(ticketFile){
+        ticketFile.read((char*)this, sizeof(*this));
+        ticketFile.close();
+    }
+    else
+    {
+        ticketFile.close();
+        cout<<"\nFile does not exist !\n";
+        return;
+    }
 
-void option1(ticket &tkt){
-    ofstream file(to_string(tkt.tno) + ".txt");
-    if(file.is_open()){
-        file<<"Name : "<<tkt.cname<<endl;
-        file<<"Ticket Number : "<<tkt.tno<<endl;
-        file<<"Destination : "<<tkt.destination<<endl;
-        file.close();
-        cout << "Item details saved to file." << endl;
+    cout<<"\nTicket No. : "<<tno<<endl;
+    cout<<"Customer Name : "<<cname<<endl;
+    cout<<"Destination : "<<destination<<endl;
+    if(price != 0){
+        cout<<"Price : "<<price<<endl;
+    }
+}
+
+void ticket :: option1()
+{
+    ticket T;
+    cout<<"\nEnter details:\n";
+    cout<<"Enter customer name : ";
+    cin.ignore();
+    getline(cin,T.cname);
+    cout<<"Enter Ticket Number : ";
+    getline(cin,T.tno);
+    cout<<"Enter Destination : ";
+    //getline(cin,T.destination);
+    cin>>T.destination;cin.ignore(0);
+    put_details_tofile(&T);
+    T.display_details();
+}
+void ticket :: put_details_tofile(ticket *ptr)
+{
+    string ticketNo = ptr->tno + ".txt";
+
+    fstream ticketFile;
+    ticketFile.open(ticketNo, ios::in);
+    //checks if file exists
+    if(!ticketFile){
+        //creates a new file if does not exist
+        ticketFile.close();
+        ticketFile.open(ticketNo, ios::out|ios::binary);
+        ticketFile.write((char*)ptr,sizeof(*ptr));
     }
     else{
-        cout<<"Culd not create file.\n";
+        //gives error if file exists
+        cout<<"\nFile already exists!"<<endl;
     }
+    ticketFile.close();
 }
 
-void option2(int tno, int tno_new){
-        fstream inoutfile; // input/output stream
-        inoutfile.seekg(0,ios::beg);
-        string file_old = to_string(tno);
-        string file_new = to_string(tno_new);
-        //strcat(fname,".txt");
-        file_old=file_old+".txt";
-        file_new=file_new+".txt";
-        char oldname[] = "file_old.txt";
-        char newname[] = "file_new.txt";
-        /*	Deletes the file if exists */
-        if (rename(oldname, newname) != 0)
-            perror("Error renaming file");
-        else
-            cout << "File renamed successfully";
+void ticket :: option2()
+{
+    ticket old_T, new_T;
+    cout<<"\nEnter ticket no to be edited : ";
+    cin>>old_T.tno;
+    cout<<"\nEnter the new ticket no : ";
+    cin>>new_T.tno;
 
-        inoutfile.open(file_new.c_str(), ios:: in | ios::out | ios::binary);
-        int location = 0;
-        if(inoutfile.eof())
-            inoutfile.clear();
-        inoutfile.seekp(location);
-        inoutfile.write((char *) & tno_new, sizeof tno_new) << flush;
-        /* >>>>>>>>>>>>> SHOW UPDATED FILE<<<<<<<<<<<<<<< */
-        inoutfile.seekg(0); //go to the start
-        cout << "CONTENTS OF UPDATED FILE \n";
-        while(inoutfile.read((char *) & tkt, sizeof *tkt))
-        {
-            tkt.putdata();
-        }
-        inoutfile.close();
+    ticket::edit_tno_infile(&old_T,&new_T);
+    new_T.display_details();
 }
 
+void ticket :: edit_tno_infile(ticket *old_T, ticket *new_T)
+{
+    string Ticket_old = old_T->tno + ".txt";
+    string Ticket_new = new_T->tno + ".txt";
 
+    //creating updated file
+    fstream ticketFile;
+    ticketFile.open(Ticket_old,ios::in|ios::binary);
+    ticketFile.seekg(0);
+    if(!ticketFile){
+        cout<<"\nTicket with ticket number "<<old_T->tno<<" does not exist!\n"<<endl;
+    }
+    else{
+        // read data from file in old_T
+        ticketFile.read((char*)old_T,sizeof(*old_T));
+        new_T->cname = old_T->cname;
+        //new_T->destination = old_T->destination;
+        strcpy(new_T->destination , old_T->destination);
+        new_T->price = old_T->price;
+        cout<<new_T->tno<<new_T->cname<<new_T->destination<<new_T->price<<endl;
+        ticketFile.close();
+        //deleting old file
+        char temp[Ticket_old.length() + 1];
+        strcpy(temp, Ticket_old.c_str());
+        if(remove(temp) != 0){
+            cout<<"/nError in deleting old file !"<<endl;
+            return;
+        }
 
-void option3(int tno,float price){
-        ofstream fout;
-        ifstream fin;
-        string fname = to_string(tno);
-        //strcat(fname,".txt");
-        fname=fname+".txt";
-        fin.open(fname.c_str());
-        fout.open(fname.c_str(), ios::app);
-        if(fin.is_open()){
-            fout<<"price:"<<price;
-            cout<<"\n Price has been appended to file"<<endl;
-            cout<<"The updated Ticket         details are:\n";
-            char r;
-            while(!fin.eof())
-                {
-                    fin>>r;
-                    cout<<r;
-                }
-                fin.close();
-                fout.close();
-                }
-        else {
-            cout<<"The ticket you are looking for isn't booked \n";
+        // create new file with new name
+        ticketFile.open(Ticket_new, ios::in);
+        if(ticketFile){
+            cout<<"/nFile already exists !/n";
+        }
+        else{
+            ticketFile.close();
+            ticketFile.open(Ticket_new, ios::out|ios::binary);
+            ticketFile.seekg(0);
+            ticketFile.write((char*)new_T, sizeof(*new_T));
         }
     }
+    ticketFile.close();
+}
 
-int main() {
+void ticket :: option3()
+{
+    ticket T;
+    cout<<"\nEnter Ticket number : ";
+    cin>>T.tno;
+    cin.ignore();
+    cout<<"\nEnter ticket price: ";
+    cin>>T.price;
+    if(ticket :: add_price_tofile(&T) == 0)
+        T.display_details();
+}
+
+int ticket :: add_price_tofile(ticket *ptr)
+{
+    string ticketNo = ptr->tno + ".txt";
+    fstream ticketFile;
+    ticket temp;
+
+    ticketFile.open(ticketNo, ios::in|ios::binary);
+    //checks if file exists
+    if(ticketFile){
+        //copys contents from file to temp
+        ticketFile.seekg(0);
+        ticketFile.read((char*)&temp, sizeof(temp));
+        ticketFile.close();
+        //update price in temp
+        temp.price = ptr->price;
+        //update contents of file
+        ticketFile.open(ticketNo, ios::out|ios::binary);
+        ticketFile.seekg(0);
+        ticketFile.write((char*)&temp,sizeof(temp));
+    }
+    else{
+        //gives error if file does not exists
+        cout<<"\nFile does not exists!"<<endl;
+        return 1;
+    }
+    ticketFile.close();
+    return 0;
+}
+
+int main()
+{
     int choice;
-    int tno,tcount,tno_new;
-    float price;
-    string cn,dest;
-    ticket *tkt[100];
 
-
-    while (1) {
-        cout << "Ticket Reservation System" << endl;
+    while (1)
+    {
+        cout << "\nTicket Reservation System" << endl;
         cout << "1. Enter Ticket Details " << endl;
         cout << "2. Edit Ticket Number and Display Updated Content" << endl;
         cout << "3. Append Price to a Ticket File and Display Appended Content" << endl;
@@ -118,45 +200,27 @@ int main() {
         cout << "Enter your choice: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1:
-                cout<<"Enter customer name : ";
-                cin.ignore();
-                getline(cin,cn);
-                cout<<"Enter Ticket Number :";
-                cin>>tno;
-                cout<<"Enter Destination : ";
-                cin.ignore();
-                getline(cin,dest);
-                tkt[tno]=new ticket (cn,tno,dest);
-                option1(tkt[tno]);
-                break;
+        switch (choice)
+        {
+        case 1:
+            ticket::option1();
+            break;
 
-            case 2:
-                cout<<"\nEnter ticket no to be edited: ";
-                cin>>tno;
-                cout<<"\nEnter the new ticket no :";
-                cin>>tno_new;
-                option2(tno,tno_new);
-                break;
-            case 3:
-                cout<<"Enter the ticket no:"<<endl;
-                cin>>tno;
-                cout<<"enter the price: ";
-                cin>>price;
-                option3(tno,price);
-                break;
+        case 2:
+            ticket::option2();
+            break;
 
-            case 4:
-                exit(1);
+        case 3:
+            ticket::option3();
+            break;
 
-            default:
-                cout << "Invalid choice. Please try again." << endl;
-                break;
+        case 4:
+            return 0;
+
+        default:
+            cout << "Invalid choice. Please try again." << endl;
+            break;
         }
     }
-
     return 0;
 }
-
-

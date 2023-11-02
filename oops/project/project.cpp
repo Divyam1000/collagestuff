@@ -30,6 +30,22 @@ public:
 
 void ticket :: display_details()
 {
+    string ticketNo = tno + ".txt";
+    fstream ticketFile;
+    ticketFile.open(ticketNo, ios::in|ios::binary);
+    //checks if file exists
+    ticketFile.seekg(0);
+    if(ticketFile){
+        ticketFile.read((char*)this, sizeof(*this));
+        ticketFile.close();
+    }
+    else
+    {
+        ticketFile.close();
+        cout<<"\nFile does not exist !\n";
+        return;
+    }
+
     cout<<"\nTicket No. : "<<tno<<endl;
     cout<<"Customer Name : "<<cname<<endl;
     cout<<"Destination : "<<destination<<endl;
@@ -62,7 +78,7 @@ void ticket :: put_details_tofile(ticket *ptr)
     if(!ticketFile){
         //creates a new file if does not exist
         ticketFile.close();
-        ticketFile.open(ticketNo, ios::out);
+        ticketFile.open(ticketNo, ios::out|ios::binary);
         ticketFile.write((char*)ptr,sizeof(*ptr));
     }
     else{
@@ -91,16 +107,15 @@ void ticket :: edit_tno_infile(ticket *old_T, ticket *new_T)
 
     //creating updated file
     fstream ticketFile;
-    ticketFile.open(Ticket_old,ios::in);
+    ticketFile.open(Ticket_old,ios::in|ios::binary);
+    ticketFile.seekg(0);
     if(!ticketFile){
         cout<<"\nTicket with ticket number "<<old_T->tno<<" does not exist!\n"<<endl;
     }
     else{
         // read data from file in old_T
         ticketFile.read((char*)old_T,sizeof(*old_T));
-        new_T->cname = old_T->cname;
-        new_T->destination = old_T->destination;
-        new_T->price = old_T->price;
+        old_T->tno = new_T->tno;
         ticketFile.close();
         //deleting old file
         char temp[Ticket_old.length() + 1];
@@ -110,15 +125,16 @@ void ticket :: edit_tno_infile(ticket *old_T, ticket *new_T)
             return;
         }
 
-        // create new file
+        // create new file with new name
         ticketFile.open(Ticket_new, ios::in);
         if(ticketFile){
             cout<<"/nFile already exists !/n";
         }
         else{
             ticketFile.close();
-            ticketFile.open(Ticket_new, ios::out);
-            ticketFile.write((char*)new_T, sizeof(*new_T));
+            ticketFile.open(Ticket_new, ios::out|ios::binary);
+            ticketFile.seekg(0);
+            ticketFile.write((char*)old_T, sizeof(*old_T));
         }
     }
     ticketFile.close();
@@ -129,9 +145,10 @@ void ticket :: option3()
     ticket T;
     cout<<"\nEnter Ticket number : ";
     cin>>T.tno;
+    cin.ignore();
     cout<<"\nEnter ticket price: ";
     cin>>T.price;
-    ticket :: add_price_tofile(&T);
+    if(ticket :: add_price_tofile(&T) == 0)
         T.display_details();
 }
 
@@ -141,18 +158,18 @@ int ticket :: add_price_tofile(ticket *ptr)
     fstream ticketFile;
     ticket temp;
 
-    ticketFile.open(ticketNo, ios::in);
+    ticketFile.open(ticketNo, ios::in|ios::binary);
     //checks if file exists
     if(ticketFile){
         //copys contents from file to temp
+        ticketFile.seekg(0);
         ticketFile.read((char*)&temp, sizeof(temp));
         ticketFile.close();
         //update price in temp
         temp.price = ptr->price;
-        ptr->cname = temp.cname;
-        ptr->destination = temp.destination;
         //update contents of file
-        ticketFile.open(ticketNo, ios::out);
+        ticketFile.open(ticketNo, ios::out|ios::binary);
+        ticketFile.seekg(0);
         ticketFile.write((char*)&temp,sizeof(temp));
     }
     else{
