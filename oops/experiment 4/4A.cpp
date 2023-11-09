@@ -48,7 +48,6 @@ int main(){
     a.display();
     a--;
     a.display();
-
     b = a++;
     b.display();
 }
