@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node
+{
+	int info;
+	struct *link;
+} *start = NULL;
+
+void radix_sort();
+int large_digit();
+int digit(int number, int k);
+
+
+int main()
+{
+
+
+}
+
+
+void radix_sort()
+{
+	int i,k,dig, leastSig, mostSig;
+	struct node *p, *front[10], *rear[10];
+	leastSig = 1;
+	mostSig = large_digit(start);
+	for(k= least_sig; k <= most_sig; k++)
+	{
+		for(int i = 0; i <= 9; i++)
+		{
+			rear[i] = NULL;
+			front[i] = NULL;
+		} 
+		for(p = start; p != NULL; p = p->next)
+		{
+			dig = digit(p->info, k);
+			if(front[dig] == NULL)
+				front[dig] = p;
+			else
+				rear[p]->link = p;
+			rear[dig] = p;
+		}
+		i = 0;
+  		while(front[i] == NULL)
+		 	i++;
+		start = front[i];
+		while(i < 9)
+		{
+			if(rear[i+1] != NULL )
+				rear[i]->link = front[i+1];
+			else
+				rear[i+1] = rear[i];
+			i++;
+		}
+		
+		rear[9]->link = NULL;
+	}
+
+}
+
+int digit(int num, int k)
+{
+	int digit;
+	for(i = 1; i <= k; i++)
+	{
+		digit = num % 10;
+		num /= 10;
+	}
+	return digit;
+}
+
+void large_digit()
+{
+	struct node* p = start;
+	int large = 0, ndig = 0;
+	while(p != NULL)
+	{
+		if(p->info > large)
+			large = p->info;
+		p = p->link;
+	}
+	while(large != 0)
+	{
+		ndig ++;
+		large /= 10;
+	}
+	return ndig;
+
+}
