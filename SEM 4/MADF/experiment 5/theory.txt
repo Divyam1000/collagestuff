@@ -1,0 +1,709 @@
+EXPERIMENT 6 
+TOPIC: INTERNET ALGORITHMS 
+                                                                 Date: 
+ Aim: -Write algorithm and C program to implement the following problems using internet 
+algorithms  
+A) Boyer Moore Pattern Matching Algorithm 
+B) Knuth Morris Pratt Pattern Matching Algorithm 
+C) Huffman Encoding 
+D) Longest common subsequence 
+ 
+THEORY: 
+Text processing algorithms operate primarily on character strings. They involve interesting 
+methods for string pattern matching. 
+In the classic pattern matching problem on strings, we are given a text string of length n and a 
+pattern string P of length in, and want to find whether P is a sub-string of T. The notion of a 
+"match" is that there is a sub-string of T starting some index i that matches P, character by 
+character, so that 
+T[i]=P{O], T[i+1] =P[1], ..., T{i+in.1I =P[m i] 
+That is, 
+P=T[i..i+tn-1].  
+Thus, the output from a pattern matching algorithm is either an indication 
+pattern P does not exist in T or the starting index in T of a substring matching P. 
+ 
+ 
+Components of Pattern Matching 
+ 
+1. Patterns: A pattern represents a particular arrangement or sequence of elements that 
+we seek to identify within a larger dataset. These elements could be symbols, 
+numbers, shapes, or any type of data. 
+2. Target Data: This is the dataset or source where we want to locate instances of our 
+specified pattern. 
+3. Matching Algorithm: The algorithm defines the process by which patterns are 
+recognized or identified within the target data. It typically involves defining rules or 
+criteria for what constitutes a match. 
+Types of Pattern Matching 
+1. Exact Matching: The simplest form where the task is to locate occurrences of an exact 
+pattern within the target data. This is analogous to searching for a specific string of 
+characters within a text. 
+2. Approximate Matching: Involves finding patterns that are similar to, but not 
+necessarily identical to, a specified pattern. This can include tasks like finding similar 
+sequences in DNA or matching similar images. 
+Theoretical Perspectives 
+1. Formal Language Theory: Pattern matching can be studied through formal language 
+theory, which deals with the properties of languages and structures in terms of rules 
+and grammars. Regular expressions and context-free grammars are often used to 
+define patterns. 
+2. Algorithmic Complexity: Pattern matching algorithms can be analyzed in terms of 
+their computational complexity (e.g., time complexity and space complexity). 
+Efficient algorithms like the Knuth-Morris-Pratt (KMP) algorithm and the Boyer
+Moore algorithm have been developed for string pattern matching. 
+3. Information Theory: Pattern matching can also be viewed from an information theory 
+perspective, where the goal is to quantify the amount of information gained or 
+reduced by identifying a particular pattern within a dataset. 
+Applications 
+1. Text Processing: Searching for specific words or phrases within documents. 
+2. Image and Signal Processing: Recognizing objects or signals based on predefined 
+templates. 
+3. Bioinformatics: Identifying similarities in genetic sequences. 
+4. Data Mining: Discovering recurring patterns in large datasets. 
+Challenges and Future Directions 
+1. Scalability: Efficient pattern matching in massive datasets remains a challenge. 
+2. Noise and Variability: Dealing with noisy or incomplete data where patterns may not 
+be exact. 
+3. Machine Learning Integration: Exploring how pattern matching can be enhanced or 
+automated using machine learning techniques. 
+4. Cross-domain Applications: Translating insights and techniques from one domain 
+(e.g., text) to another (e.g., images). 
+In summary, pattern matching is a rich area of study with diverse theoretical foundations and 
+practical applications. Its development continues to be driven by advancements in algorithm 
+design, computational resources, and interdisciplinary collaborations. 
+Problem Statement 
+Given: 
+ A text string 𝑇T of length 𝑛n. 
+ A pattern string 𝑃P of length 𝑚m. 
+The goal is to determine whether 𝑃 appears as a substring within 𝑇. A "match" occurs when 
+there exists an index 𝑖i such that 𝑇[𝑖]=𝑃[0], 𝑇[𝑖+1]=𝑃[1], and so on up to 𝑇[𝑖+𝑚−1]=𝑃[𝑚−1]. 
+Output of the Pattern Matching Algorithm 
+The pattern matching algorithm's output can be: 
+ The starting index 𝑖 in 𝑇 where 𝑃 is found as a substring. 
+ An indication that 𝑃 does not exist as a substring in 𝑇. 
+Character Set and Alphabet  
+ We typically assume that the characters in 𝑇 and 𝑃 come from a well-defined 
+character set or alphabet denoted as Σ. 
+ Σ can be a finite set like ASCII, Unicode, or any custom-defined character set. 
+ Σ could also be more general and potentially infinite, although finite character sets are 
+common in practical applications like document processing. 
+Alphabet Size ∣Σ∣ 
+ The size of the alphabet ,  Σ denoted as ∣Σ∣, represents the number of distinct 
+characters in Σ. 
+ ∣Σ∣ is typically considered a fixed constant in most scenarios. 
+ 
+The pattern matching problem is fundamental in computer science and is utilized in various 
+applications, such as text search, data mining, and string manipulation. Efficient algorithms 
+exist for solving this problem, and the choice of algorithm often depends on the 
+characteristics of the input strings and the size of the alphabet Σ. The problem is well-studied 
+and has many practical implementations that leverage various algorithmic techniques to 
+achieve optimal performance. 
+ 
+Theory of Brute Force Pattern Matching 
+The brute force algorithmic design pattern is a powerful technique for algorithm 
+design when we have something we wish to search for or when we wish to optimize some 
+function. 
+The brute-force pattern matching algorithm  consists of two nested loops, with the outer loop 
+indexing through all possible starting indices of the pattern in the text, and the inner loop 
+indexing through each character of the pattern, comparing it to its potentially corresponding 
+character, in the text. 
+Algorithm Steps: 
+1. Start with the pattern aligned at the beginning of the text. 
+2. Slide the pattern one character position at a time across the text. 
+3. At each position, compare the characters of the pattern with the corresponding 
+characters in the text. 
+4. If a mismatch is found, shift the pattern one position to the right and continue 
+comparing. 
+5. Repeat until either a match is found or the end of the text is reached. 
+ 
+Algorithm BruteForceMatch(T, P): 
+    Input: Strings T (text) with n characters and P (pattern) with m characters 
+    Output: Starting index of the first substring of T matching P, or indication 
+            that P is not a substring of T 
+     
+    for i from 0 to n - m do  // Loop through possible starting positions in T 
+        j = 0 
+        while (j < m and T[i + j] = P[j]) do  // Check characters of P against substring of T 
+            j = j + 1 
+        if j = m then  // If we reached end of P (all characters match) 
+            return i  // Return the starting index of the match 
+     
+    return "There is no substring of T matching P."  // No match found 
+ 
+Complexity Analysis 
+The time complexity of brute force pattern matching depends on the lengths of the pattern 𝑚 
+and the text 𝑛. 
+ Worst-case time complexity: 𝑂((𝑛−𝑚+1)×𝑚) 
+ 𝑛−𝑚+1 positions where the pattern can start in the text. 
+ 𝑚 comparisons for each starting position. 
+The worst-case time complexity of brute force pattern matching is 𝑂(𝑛×𝑚), which can 
+become inefficient for large texts or patterns. 
+ 
+Advantages of Brute Force Pattern Matching 
+1. Simplicity: Brute force is easy to implement and understand. 
+2. Applicability: It works for any type of pattern and text data. 
+3. Straightforward Logic: The algorithm is straightforward and does not require complex 
+data structures. 
+Disadvantages of Brute Force Pattern Matching 
+1. Inefficiency: The worst-case time complexity is 𝑂(𝑛×𝑚), making it inefficient for 
+large texts or patterns. 
+2. Lack of Optimality: Other algorithms like the Knuth-Morris-Pratt (KMP) algorithm 
+and the Boyer-Moore algorithm offer better time complexities for pattern matching. 
+3. Not Suitable for Big Data: Brute force becomes impractical for very large datasets 
+due to its quadratic time complexity. 
+Considerations and Usage 
+ Brute force pattern matching can be a good starting point for learning and 
+prototyping. 
+ It is suitable for small-scale applications or situations where efficiency is not critical. 
+ For production-level applications, consider more efficient algorithms like KMP or 
+Boyer-Moore for pattern matching. 
+While brute force pattern matching is conceptually simple and universally applicable, its 
+inefficiency in terms of time complexity limits its practical use, especially for large datasets. 
+Understanding its theory and drawbacks is crucial for making informed choices when 
+implementing pattern matching algorithms. 
+Theory of Boyer-Moore Algorithm 
+The Boyer-Moore (BM) pattern matching algorithm can sometimes avoid comparisons 
+between P and a sizable fraction of the characters in T. The only caveat is that, whereas the 
+brute-force algorithm can work even with a potentially unbounded alphabet, the BM 
+algorithm assumes the alphabet is of fixed, finite size. It works the fastest when the alphabet 
+is moderately sized and the pattern is relatively long.The main idea is to improve the running 
+time of the brute force algorithm by adding two potentially time-saving heuristics: 
+ 
+1. Looking-Glass Heuristic: When testing a possible placement of P against T, begin the                 
+comparisons from the end of P and move backward to the front of P. 
+ 
+2. Character-Jump Heuristic: During the.testing of a possible placement of P against T, a 
+mismatch of text character T [i] = c with the corresponding pattern character P[j] is 
+handled as follows: If c is not contained anywhere in P, then shift P completely past T[i] 
+(for it cannot match any character in P). Otherwise shift P till until an occurrence of 
+character c in P gets aligned with T[I]. 
+ 
+The looking-glass heuristic sets up the other heuristic to allow us to avoid comparisons 
+between P and whole groups of characters in T. In this case at least we can get to the 
+destination faster by going backwards. 
+To implement character jump heuristic, we define a function last(c) that takes a character c 
+from the alphabet and specifies how far we may shift the pattern P if a character equal to c is 
+found in the text that does not match the pattern. We define last(c) as follows:  
+If c is in P, last(c) is the index of the last (right-most) occurrence of c in P. Otherwise, we 
+conventionally:define last(c) = -1. 
+ 
+Algorithm BM_Match(T, P): 
+    Input: Strings T (text) with n characters and P (pattern) with m characters 
+    Output: Starting index of the first substring of T matching P, or indication 
+            that P is not a substring of T 
+     
+    compute function last()  // Preprocessing step to compute the "last occurrence" table 
+     
+    i = 0 
+    while i <= n - m do 
+        j = m - 1 
+        while j >= 0 and P[j] = T[i + j] do 
+            j = j - 1 
+        if j < 0 then  // Match found 
+            return i 
+        else 
+            // Calculate the jump step based on the last occurrence of T[i + j] in P 
+            last_occ = last(T[i + j]) 
+            i = i + max(1, j - last_occ) 
+    return "There is no substring of T matching P." 
+Complexity Analysis 
+The average-case time complexity of the Boyer-Moore algorithm is 𝑂(𝑛/𝑚), where 𝑛n is the 
+length of the text and 𝑚 is the length of the pattern. In practice, this algorithm often 
+outperforms other string-matching algorithms like naive string matching and the Knuth
+Morris-Pratt (KMP) algorithm, especially for longer patterns. 
+Advantages of Boyer-Moore Algorithm 
+1. Efficiency: The algorithm is particularly efficient for searching in large texts with 
+longer patterns due to its average-case linear time complexity. 
+2. Practical Performance: In many real-world scenarios, Boyer-Moore performs 
+significantly faster than other algorithms, especially when mismatches are common. 
+3. Preprocessing: The preprocessing steps (like building the bad character and good 
+suffix tables) are done in 𝑂(𝑚+𝜎) time, where 𝜎 is the alphabet size. This 
+preprocessing cost is typically low compared to the overall search time. 
+4. Adaptive Shifts: The algorithm adapts its shift strategy based on the characters 
+encountered during the search, leading to efficient skipping of irrelevant text portions. 
+Disadvantages of Boyer-Moore Algorithm 
+1. Worst-Case Complexity: While the average-case performance is good, the worst-case 
+time complexity can be 𝑂(𝑛𝑚+lambda) in scenarios where certain characters in the 
+text and pattern cause multiple comparisons. 
+2. Additional Space: The preprocessing step requires additional space to store the bad 
+character and good suffix tables, which could be a drawback in memory-constrained 
+environments. 
+3. Complexity of Implementation: Compared to simpler algorithms like naive string 
+matching, implementing the Boyer-Moore algorithm correctly with all its 
+optimizations can be more complex. 
+ 
+Overall, the Boyer-Moore algorithm is a powerful and widely used pattern matching 
+technique that offers significant advantages in terms of efficiency and practical performance, 
+especially for large-scale string search tasks. While it has certain disadvantages, such as 
+potentially high worst-case complexity and increased implementation complexity, its benefits 
+often outweigh these drawbacks in many applications where speed and scalability are critical. 
+Theory of KMP Pattern Matching 
+The KMP algorithm is based on the concept of avoiding unnecessary comparisons by 
+utilizing information from previous comparisons. We may perform many comparisons while 
+testing a potential placement of the pattern against the text, yet if we discover a pattern 
+character that does not match in the text, then we throw away all the information gained by 
+these comparisons and start over again from scratch with the next incremental placement of 
+the pattern.The main idea of the KMP algorithm is to pre process the pattern string P so as to 
+compute a failure function f that indicates the proper shift of P so that, to the largest extent 
+possible, we can reuse previously performed comparisons. 
+ 
+The KMP pattern matching algorithm,  incrementing processes the text string T comparing it 
+to the pattern string P. Each time there is a match, we increment the current indices. On the 
+other hand, if there is a mismatch, and we have previously made progress in P, then we 
+consult the failure function f to determine the new index in P where we need to continue 
+checking P against T. Otherwise (there was a mismatch and we are at. the beginning of P), we 
+simply increment the index for T (and keep the index variable for P at its beginning). We 
+repeat this process until we find a match of P in T or the index for T reaches n, the length of 
+T (indicating that we did not find the pattern P in T). 
+ 
+This algorithm for the failure function is an example of "bootstrapping" process quite similar 
+to that used in the KM P Match algorithm. We compare the pattern to itself as in the KMP 
+algorithm. Each.time we have characters that match, we set f(i) =j+1. Since we have i > j the 
+execution of the, algorithm, f(j - 1) is always defined when we need to use. 
+ 
+Algorithm KMPFailureFunction(P): 
+    Input: String P (pattern) with m characters 
+    Output: The failure function f for P, which maps each index j to the length of the longest 
+prefix of P that is also a suffix of P[0..j] 
+     
+    f = array of length m 
+    f[0] = 0  // The value of f[0] is always 0 by definition 
+     
+    j = 0 
+    i = 1 
+     
+    while i < m do 
+        if P[j] = P[i] then 
+            f[i] = j + 1  // We have matched (j + 1) characters as prefix and suffix 
+            i = i + 1 
+            j = j + 1 
+        else if j > 0 then 
+            j = f[j - 1]  // Backtrack using the previously computed failure function value 
+        else 
+            f[i] = 0  // No match, set f[i] to 0 
+            i = i + 1 
+     
+    return f 
+ 
+Algorithm KMPMatch(T, P): 
+    Input: Strings T (text) with n characters and P (pattern) with m characters 
+    Output: Starting index of the first substring of T matching P, or indication 
+            that P is not a substring of T 
+     
+    f = KMPFailureFunction(P)  // Construct the failure function f for pattern P 
+    i = 0 
+    j = 0 
+     
+    while i < n do 
+        if P[j] = T[i] then 
+            if j = m - 1 then 
+                return i - m + 1  // Match found, return the starting index 
+            i = i + 1 
+            j = j + 1 
+        else if j > 0 then 
+            j = f[j - 1]  // No match, backtrack using the failure function 
+        else 
+            i = i + 1 
+     
+    return "There is no substring of T matching P." 
+Complexity of KMP Algorithm 
+ Time Complexity: The preprocessing step(Failure Function) of the KMP algorithm 
+runs in O(m) time, where m is the length of the pattern. The search phase runs in O(n) 
+time, where n is the length of the text. Therefore, the overall time complexity of the 
+KMP algorithm is O(m + n). 
+ Space Complexity: The KMP algorithm requires O(m) space for the pi[] table, where 
+m is the length of the pattern. 
+Advantages of KMP Algorithm 
+1. Efficiency: The KMP algorithm is efficient for string matching, especially when the 
+length of the pattern is significantly smaller than the length of the text. 
+2. Avoids Redundant Comparisons: By using the pi[] table, the algorithm avoids 
+unnecessary character comparisons during the search phase, leading to improved 
+performance. 
+3. Linear Time Complexity: The linear time complexity (O(m + n)) makes it suitable for 
+large datasets. 
+ 
+ 
+Disadvantages of KMP Algorithm 
+1. Additional Space: The algorithm requires extra space (O(m)) to store the pi[] table, 
+which could be a drawback for memory-constrained environments. 
+2. Complexity in Implementation: The algorithm involves preprocessing and can be 
+slightly more complex to implement compared to simpler string matching algorithms 
+like the naive approach. 
+3. Limited to Single Pattern Matching: The KMP algorithm is designed for single 
+pattern matching. Extending it to handle multiple patterns efficiently can be non
+trivial. 
+ 
+The Knuth-Morris-Pratt (KMP) algorithm is a powerful string matching algorithm with a 
+time-efficient approach, particularly suitable for scenarios where we need to find occurrences 
+of a pattern within a larger text. Despite its additional space requirement and somewhat 
+complex implementation compared to simpler algorithms, its efficiency and avoidance of 
+redundant comparisons make it a popular choice for various applications requiring string 
+pattern matching. 
+1. Standard Trie 
+Theory: 
+ A standard trie is a tree-like data structure where each node represents a single 
+character of a string. 
+ Strings are stored by traversing the trie based on their characters, leading to efficient 
+storage and retrieval. 
+Complexity: 
+ Insertion and lookup operations in a standard trie have a time complexity of O(m), 
+where m is the length of the string being inserted or searched. 
+ Space complexity can be high, especially when storing a large number of strings with 
+common prefixes. 
+Advantages: 
+ Efficient prefix-based searches (e.g., finding all words starting with a given prefix). 
+ Supports fast insertions and lookups. 
+Disadvantages: 
+ High space complexity, especially for large datasets with many similar prefixes. 
+ Memory inefficiency due to node overhead. 
+2. Compressed Trie 
+Theory: 
+ Compressed tries aim to reduce space consumption by compressing common prefixes 
+into single edges. 
+ This reduces the number of nodes in the trie, leading to better space efficiency. 
+Complexity: 
+ Operations (insertion, lookup) have the same time complexity as standard tries 
+(O(m)). 
+ 
+Advantages: 
+ Reduced memory usage compared to standard tries, especially when storing many 
+strings with shared prefixes. 
+Disadvantages: 
+ More complex implementation compared to standard tries. 
+ May have slightly slower lookup times due to additional checks for compressed 
+edges. 
+3. Compact Trie 
+Theory: 
+ Compact tries further optimize space by storing multiple characters at each node (e.g., 
+using arrays or bitmaps). 
+ This reduces memory overhead associated with storing individual characters per node. 
+Complexity: 
+ Operations have similar time complexity as standard tries (O(m)). 
+Advantages: 
+ More space-efficient than both standard and compressed tries. 
+ Faster traversal due to reduced node overhead. 
+Disadvantages: 
+ Increased complexity in implementation. 
+ May have larger constant factors due to more complex node structures. 
+4. Suffix Trie (or Suffix Tree) 
+Theory: 
+ Suffix tries (or trees) are specialized for efficiently storing all suffixes of a given 
+string. 
+ They are used extensively in string processing algorithms like pattern matching and 
+substring searches. 
+Complexity: 
+ Construction of suffix tries can be O(n^2) in the worst case, but efficient algorithms 
+like Ukkonen's algorithm reduce this to O(n). 
+Advantages: 
+ Supports rapid substring searches and pattern matching. 
+ Used in various string processing algorithms (e.g., longest common substring). 
+Disadvantages: 
+ Higher memory usage compared to standard tries, especially for longer input strings. 
+ More complex to implement and maintain. 
+5. Compact Suffix Trie (or Compact Suffix Tree) 
+Theory: 
+ Compact suffix tries combine the space efficiency of compact tries with the suffix
+based functionality of suffix tries. 
+ They aim to efficiently store all suffixes of a string while minimizing memory 
+overhead. 
+Complexity: 
+ Similar to suffix tries, with added benefits of space efficiency from compact tries. 
+Advantages: 
+ Space-efficient representation of all suffixes of a string. 
+ Supports rapid substring searches and other string processing tasks. 
+Disadvantages: 
+ Complex implementation due to the combination of features from compact and suffix 
+tries. 
+ May have slightly slower lookup times compared to simpler trie variants. 
+ 
+Each type of trie offers specific advantages and trade-offs in terms of space efficiency, time 
+complexity, and ease of implementation. The choice of trie variant depends on the specific 
+requirements of the application, such as the nature of the data being stored, memory 
+constraints, and performance considerations for insertion, lookup, and retrieval operations. 
+Advanced trie structures like compressed and compact suffix tries provide optimized 
+solutions for scenarios where memory efficiency is critical, such as in large-scale text 
+processing and search applications. 
+ 
+Algorithm suffixTrieMatch(T, P): 
+    Input: Compact suffix trie T for a text X and pattern P 
+    Output: Starting index of a substring of X matching P or an indication that P 
+            is not a substring of X 
+     
+    p = P.length()  // Length of the pattern P 
+    j = 0  // Start of the suffix of the pattern to be matched 
+     
+    v = T.root()  // Start at the root of the suffix trie T 
+     
+    repeat 
+        found = false  // Flag indicating that no child was successfully processed 
+         
+        // Process each child of node v in the trie 
+        for each child w of v do 
+            x = end(w) - start(w) + 1  // Length of the edge label (suffix length) 
+             
+            // Compare characters of P with corresponding substring of X 
+            if j < p and P[j] = X[start(w) + j] then 
+                // Process child w 
+                if p <= x then 
+                    // Suffix is shorter than or of the same length as the node label 
+                    if P[j..j + p - 1] = X[start(w) + j..start(w) + j + p - 1] then 
+                        return start(w)  // Match found, return the starting index 
+                    else 
+                        return "P is not a substring of X" 
+                else 
+                    // Suffix is longer than the node label 
+                    if P[j..j + x - 1] = X[start(w) + j..end(w)] then 
+                        p = p - x  // Update suffix length 
+                        j = j + x  // Update suffix start index 
+                        v = w  // Move to child node w 
+                        found = true 
+                        break  // Exit the for loop 
+            // Check if the current node v is external (leaf node) 
+        if not found or T.isExternal(v) then 
+            return "P is not a substring of X" 
+ 
+Theory of Huffman Encoding 
+Huffman Encoding is a popular method used for lossless data compression, where the 
+frequency of occurrence of characters in a message or data stream is exploited to represent 
+the characters using fewer bits. This technique was developed by David A. Huffman in 1952 
+and has since been widely used in various applications, including file compression algorithms 
+like ZIP and JPEG. 
+Greedy Method Overview:The greedy method is a problem-solving approach used in 
+optimization problems. It involves making a sequence of locally optimal choices at each step 
+with the aim of reaching a globally optimal solution. This method is characterized by its 
+iterative decision-making process, where each decision is made based on the current best 
+choice available without reconsidering previous choices. 
+Application to Huffman Coding 
+Huffman's algorithm for optimal prefix encoding is a classic example of the greedy method in 
+action: 
+1. Starting Condition: The algorithm begins with a well-defined starting condition, 
+typically represented by individual characters in the input string. 
+2. Cost Computation: It computes the initial cost based on the frequency of characters 
+(or symbols) in the input. 
+3. Greedy Choices: 
+ The algorithm proceeds by iteratively making choices that result in the best 
+immediate (local) improvement in cost. 
+ At each step, it combines the two least frequent symbols (or subtrees) into a 
+new subtree with a frequency equal to the sum of their frequencies, thus 
+aiming to minimize the overall encoding length. 
+4. Greedy-Choice Property: 
+ Huffman coding exemplifies the greedy-choice property, meaning that making 
+the locally optimal choice (combining the least frequent symbols) at each step 
+leads to a globally optimal solution (optimal prefix encoding). 
+ This property ensures that a sequence of locally optimal decisions results in 
+the best possible overall solution for the given optimization problem. 
+ 
+5. Optimality of Huffman Coding: 
+ The global optimality of Huffman's algorithm is rooted in the fact that the 
+optimal prefix coding problem inherently possesses the greedy-choice 
+property. 
+ The problem of constructing an optimal variable-length prefix code aligns 
+perfectly with the principles of the greedy method, allowing Huffman's 
+algorithm to efficiently produce an optimal encoding structure. 
+ 
+In summary, Huffman's algorithm for constructing optimal prefix codes is a prime example 
+of the successful application of the greedy method. By iteratively making locally optimal 
+choices (combining least frequent symbols), the algorithm efficiently reaches a globally 
+optimal solution (optimal prefix encoding) for the given optimization problem. The problem's 
+inherent greedy-choice property ensures that the sequence of decisions leads to the best 
+possible encoding structure with minimal redundancy and maximum efficiency. 
+ 
+The Huffman coding algorithm begins with each of the d distinct characters of the 
+string X to encode being the root node of a single-node binary tree. The algorithm 
+proceeds in a series of rounds. In each round, the algorithm takes the two binary 
+trees with the smallest frequencies and merges them into a single binary tree. It repeats this 
+process until only one tree is left. 
+ 
+1. Character Frequency Calculation: Determine the frequency of each character (or 
+symbol) in the message to be encoded. 
+2. Constructing a Huffman Tree: 
+ Create a binary tree where each leaf node represents a character along with its 
+frequency. 
+ Combine the two nodes with the lowest frequencies into a new internal node 
+until all nodes are part of the tree. 
+3. Assigning Codes: 
+ Traverse the Huffman tree to assign binary codes (0s and 1s) to each character. 
+ Characters that appear more frequently have shorter codes, and characters that 
+appear less frequently have longer codes. 
+ 
+Algorithm Huffman(X): 
+    Input: String X of length n with d distinct characters 
+    Output: Coding tree for X 
+     
+    // Step 1: Compute the frequency of each character in X 
+    Compute the frequency f(c) of each character c in X 
+     
+    // Step 2: Initialize a priority queue Q 
+    Initialize an empty priority queue Q 
+     
+    // Step 3: Create a single-node binary tree for each character and insert into Q 
+    for each character c in X do 
+        Create a single-node binary tree T storing c 
+        Insert T into Q with key f(c)  // Priority queue key is the character frequency 
+     
+    // Step 4: Build the Huffman coding tree using the priority queue 
+    while Q.size() > 1 do 
+        f1 = Q.minKey()  // Get the minimum frequency 
+        T1 = Q.removeMin()  // Remove the corresponding tree with minimum 
+frequency 
+        f2 = Q.minKey()  // Get the next minimum frequency 
+        T2 = Q.removeMin()  // Remove the corresponding tree with the next minimum 
+frequency 
+         
+        // Create a new binary tree T with T1 as the left subtree and T2 as the right 
+subtree 
+        Create a new binary tree T with T1 as the left subtree and T2 as the right subtree 
+        Insert T into Q with key f1 + f2  // Insert the new tree with combined frequency 
+back into Q 
+     
+    // Step 5: Return the final coding tree (the last remaining tree in Q) 
+    return Q.removeMin() 
+Complexity of Huffman Encoding 
+ Time Complexity: Constructing the Huffman tree typically takes O(n+dlogn), where 
+d is the number of unique characters of string of size n or O(dlogn) time where d is 
+the number of unique characters. This is because of the repeated merging of nodes to 
+form the tree. 
+ Space Complexity: The space complexity is also 𝑂(𝑛), where 𝑛n is the number of 
+unique characters, primarily due to storing the tree structure and the code mappings. 
+Advantages of Huffman Encoding 
+1. Compression Efficiency: Huffman Encoding achieves good compression ratios, 
+especially for data with non-uniform character frequencies. 
+2. Lossless Compression: It retains all original data after compression and 
+decompression. 
+3. No Preprocessing Required: The encoding scheme can be generated dynamically 
+based on the input data without requiring prior knowledge of the data distribution. 
+4. Simple Algorithm: The basic algorithm for constructing the Huffman tree is 
+straightforward and can be efficiently implemented. 
+Disadvantages of Huffman Encoding 
+1. Variable-Length Codes: The variable-length codes can make random access 
+inefficient because decoding might require variable numbers of bits to identify each 
+character. 
+2. Encoding Overhead: A small overhead is introduced due to the need to include the 
+encoding table or tree structure in the compressed data. 
+3. Need for Context: Huffman Encoding performs best when the input data has 
+predictable patterns or non-uniform distributions. For uniform distributions, other 
+encoding methods might be more suitable. 
+4. Compression Limitations: While Huffman Encoding is effective, it might not achieve 
+the same compression ratios as more complex algorithms like Lempel-Ziv-Welch 
+(LZW) used in formats like GIF and TIFF. 
+In summary, Huffman Encoding is a foundational technique in data compression, leveraging 
+the frequency of characters to minimize the number of bits required for representation. Its 
+efficiency, simplicity, and lossless nature make it a widely used method, especially in 
+scenarios where data has discernible patterns or non-uniform distributions. However, it may 
+not always achieve the highest compression ratios compared to more sophisticated 
+compression algorithms. 
+Theory of Longest Common Subsequence (LCS) 
+The LCS problem involves finding the longest subsequence that is common to two given 
+sequences (strings, arrays, etc.). A subsequence is a sequence that can be derived from 
+another sequence by deleting some or no elements without changing the order of the 
+remaining elements.In this problem, we are given two character strings, X of size n and Y of 
+size m, over some alphabet and are asked to find a longest string S that is a subsequence of 
+both X and Y. 
+For example, given two sequences "ABCBDAB" and "BDCAB", a common subsequence is 
+"BCAB", and the LCS is "BCAB" of length 4. 
+ 
+Algorithm LCS(X, Y): 
+ Input: Strings X and Y with n and m elements, respectively 
+    Output: An (n+1) x (m+1) array L where L[i][j] is the length of LCS of X[0..i-1] and 
+Y[0..j-1] 
+    // Initialize the (n+1) x (m+1) array L 
+ Let L be an array of size (n+1) x (m+1) initialized with zeros 
+    // Dynamic programming approach to compute LCS lengths 
+    for i from 1 to n do 
+        for j from 1 to m do 
+            if X[i-1] = Y[j-1] then 
+                L[i][j] = L[i-1][j-1] + 1  // Extend the LCS length 
+            else 
+                L[i][j] = max(L[i-1][j], L[i][j-1])  // Choose the maximum LCS length 
+   return L  // Return the LCS length array 
+Complexity Analysis 
+1. Time Complexity: The naive approach to solve LCS using recursion and memoization 
+has a time complexity of 𝑂(𝑚×𝑛), where 𝑚 and 𝑛 are the lengths of the two 
+sequences. This is due to the number of subproblems generated and solved. 
+2. Space Complexity: With memoization (dynamic programming approach), the space 
+complexity can be optimized to 𝑂(𝑚×𝑛) to store the results of subproblems. 
+Advantages of Solving LCS 
+1. Useful in Bioinformatics: LCS is essential for comparing genetic sequences and 
+identifying similarities in DNA or protein sequences. 
+2. Text Comparison: It's used in plagiarism detection, version control systems (like Git), 
+and spell checkers to identify similarities between texts. 
+3. Data Compression: LCS can help in data compression algorithms to find common 
+patterns and optimize storage. 
+4. Algorithm Design: Solving LCS provides insights into dynamic programming and 
+algorithm optimization techniques. 
+Disadvantages of Solving LCS 
+1. Computational Complexity: The problem can become computationally expensive for 
+large sequences due to its 𝑂(𝑚×𝑛) time complexity. 
+2. Memory Usage: Storing results for all subproblems can require significant memory, 
+especially for large sequences. 
+3. Exact Matching: LCS finds the longest common subsequence but does not take into 
+account insertions, deletions, or substitutions (as in the case of "edit distance" 
+problems). 
+4. Limited to Two Sequences: Traditional LCS is designed for comparing two 
+sequences. Extending it to multiple sequences (e.g., k-LCS) increases complexity. 
+ 
+ 
+ 
+ 
+ 
+ 
+Practical Considerations 
+1. Algorithm Choice: Different algorithms (recursive with memoization, iterative 
+dynamic programming, or space-optimized approaches) can be chosen based on input 
+size and constraints. 
+2. Optimization Techniques: Techniques like space optimization (using rolling arrays) 
+or constant space optimization can be applied to manage memory usage. 
+3. Problem Variants: Variants of LCS (e.g., LCS with specific modifications like 
+allowing gaps or substitutions) may be more suitable for certain applications. 
+In conclusion, while LCS is a powerful concept with diverse applications, it comes with 
+computational and memory trade-offs, and its applicability may vary based on specific 
+problem requirements and constraints. Understanding the theory and complexities associated 
+with solving LCS is essential for efficient algorithm design and problem-solving in various 
+domains. 
+ 
+In the context of the Longest Common Subsequence (LCS) problem, the "move up" and 
+"move left" methods refer to the decision-making process used within the dynamic 
+programming approach to construct the LCS solution matrix. These methods help determine 
+how we proceed when filling in values in the matrix based on comparing characters of the 
+two sequences. 
+Background 
+The LCS problem involves finding the longest subsequence that appears in both of the given 
+input sequences. A subsequence is a sequence that can be derived from another sequence by 
+deleting some or no elements without changing the order of the remaining elements. 
+Dynamic Programming Approach 
+To solve the LCS problem efficiently, dynamic programming is often used. The key idea is to 
+build a 2D table (or matrix) where each cell 𝑑𝑝[𝑖][𝑗] represents the length of the LCS of the 
+first i characters of sequence 𝑋 and the first 𝑗 characters of sequence 𝑌. 
+Move Up and Move Left Methods 
+1. Move Up: When filling in the matrix 𝑑𝑝, the "move up" action corresponds to taking 
+the value from the cell directly above the current cell. This represents the scenario 
+where we skip a character from the second sequence 𝑌 to match characters from the 
+first sequence 𝑋. 
+Mathematically, if we are at cell 𝑑𝑝[𝑖][𝑗], then the value of 𝑑𝑝[𝑖][𝑗] is determined by 
+�
+�𝑝[𝑖−1][𝑗]. This implies that we are considering the LCS length of 
+�
+�[1…𝑖−1]X[1…i−1] and 𝑌[1…𝑗]Y[1…j] (skipping the i-th character of 𝑋). 
+2. Move Left: Conversely, the "move left" action corresponds to taking the value from 
+the cell directly to the left of the current cell. This represents the scenario where we 
+skip a character from the first sequence 𝑋 to match characters from the second 
+sequence Y. 
+Mathematically, if we are at cell 𝑑𝑝[𝑖][𝑗], then the value of 𝑑𝑝[𝑖][𝑗] is determined by 
+�
+�𝑝[𝑖][𝑗−1]. This implies that we are considering the LCS length of 𝑋[1…𝑖]X[1…i] 
+and 𝑌[1…𝑗−1]Y[1…j−1] (skipping the j-th character of Y). 
+Implementation in LCS Algorithm 
+During the construction of the 𝑑𝑝dp table for the LCS problem, these "move up" and "move 
+left" actions are used to populate each cell based on the comparison of characters from the 
+two sequences 𝑋 and 𝑌. 
+ If 𝑋[𝑖−1] is equal to 𝑌[𝑗−1](current characters match), then 𝑑𝑝[𝑖][𝑗] is set to 
+�
+�𝑝[𝑖−1][𝑗−1]+1, indicating that we extend the LCS by including this matching 
+character. 
+ Otherwise, 𝑑𝑝[𝑖][𝑗] is set to the maximum of 𝑑𝑝[𝑖−1][𝑗] and 𝑑𝑝[𝑖][𝑗−1], representing 
+the scenario where we skip one character from either sequence to find the longest 
+common subsequence. 
+ 
+In summary, the "move up" and "move left" methods are fundamental operations used within 
+the dynamic programming approach for solving the LCS problem. These methods enable 
+efficient computation of the LCS length by considering all possible combinations of character 
+matches and skips between the two input sequences 𝑋X and 𝑌Y. 
+  
+ 
